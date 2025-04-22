@@ -2,50 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Erion's Portfolio</title>
+  <title>Erion Rexhepi • Web Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #f0f0f0;
+      --card-light: #fff;
+      --card-dark: #1e1e1e;
+      --accent: #007BFF;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.4s ease;
       padding: 30px;
-      color: #333;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     h1 {
       text-align: center;
+      font-size: 32px;
       margin-bottom: 40px;
-      font-size: 36px;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: #0056b3;
     }
 
     .project {
-      background: #fff;
+      background-color: var(--card-light);
+      margin: 20px auto;
+      max-width: 700px;
       padding: 20px;
-      margin-bottom: 20px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    body.dark .project {
+      background-color: var(--card-dark);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.05);
+    }
+
+    .project:hover {
+      transform: scale(1.02);
     }
 
     h2 {
       margin: 0;
-      font-size: 24px;
+      font-size: 22px;
     }
 
     a {
       display: inline-block;
       margin-top: 10px;
+      color: var(--accent);
       text-decoration: none;
-      color: #007BFF;
       font-weight: bold;
+      transition: color 0.2s;
     }
 
     a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+
+      .project {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>Erion's Projects</h1>
+  <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
+
+  <h1>Erion Rexhepi • Web Developer</h1>
 
   <div class="project">
     <h2>Age Calculator</h2>
@@ -60,15 +120,24 @@
   <div class="project">
     <h2>ToDo List</h2>
     <a href="ToDoList/index.html" target="_blank">Shiko projektin</a>
-    </div>
-  
-<div class="project">
-  <h2>Convert Text To Speech</h2>
-  <a href="Convert Text To Speech/index.html" target="_blank">Shiko projektin</a>
-</div>
+  </div>
 
-    
+  <div class="project">
+    <h2>Convert Text To Speech</h2>
+    <a href="Convert Text To Speech/index.html" target="_blank">Shiko projektin</a>
+  </div>
 
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("mode", document.body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    // Activate saved mode on load
+    if (localStorage.getItem("mode") === "dark") {
+      document.body.classList.add("dark");
+    }
+  </script>
 
 </body>
 </html>
