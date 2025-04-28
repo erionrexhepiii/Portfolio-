@@ -77,3 +77,18 @@
 #result span{
   color: cyan;
 }
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  input, button, textarea, select {
+    width: 100%;
+    max-width: 300px;
+  }
+}
