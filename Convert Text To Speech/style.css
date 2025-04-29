@@ -1,11 +1,11 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
-.hero{
+.hero {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(45deg, #4b55e4, #b14dd8);
@@ -15,7 +15,7 @@
   flex-direction: column;
 }
 
-.hero h1{
+.hero h1 {
   font-size: 45px;
   font-weight: 500;
   margin-top: -50px;
@@ -23,11 +23,11 @@
   color: #fff;
 }
 
-.hero h1 span{
- color: #e95414;
+.hero h1 span {
+  color: #e95414;
 }
 
-textarea{
+textarea {
   width: 600px;
   height: 250px;
   background: #403d84;
@@ -41,19 +41,19 @@ textarea{
   margin-bottom: 30px;
 }
 
-textarea::placeholder{
+textarea::placeholder {
   font-size: 16px;
   color: #fff;
 }
 
-.row{
+.row {
   width: 600px;
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-button{
+button {
   background: #e95414;
   color: #fff;
   font-size: 16px;
@@ -66,12 +66,12 @@ button{
   align-items: center;
 }
 
-button img{
+button img {
   width: 16px;
   margin-right: 10px;
 }
 
-select{
+select {
   flex: 1;
   color: #fff;
   background: #403d84;
@@ -91,12 +91,34 @@ select{
 @media (max-width: 768px) {
   body {
     padding: 20px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
     text-align: center;
   }
 
-  h1 {
-    font-size: 28px;
+  textarea {
+    width: 90%;
+    height: 200px;
   }
+
+  .row {
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  select, button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 
   input, button, textarea, select {
     width: 100%;
