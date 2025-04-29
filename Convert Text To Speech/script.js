@@ -1,23 +1,30 @@
 let speech = new SpeechSynthesisUtterance();
-
-let voices =[];
-
+let voices = [];
 let voiceSelect = document.querySelector("select");
 
-window.speechSynthesis.onvoiceschanged = () => {
+function populateVoices() {
   voices = window.speechSynthesis.getVoices();
+  voiceSelect.innerHTML = "";
+  voices.forEach((voice, i) => {
+    let option = new Option(voice.name + " (" + voice.lang + ")", i);
+    voiceSelect.add(option);
+  });
   speech.voice = voices[0];
+}
 
-  voices.forEach((voice, i) => (voiceSelect.options[i] 
-    = new Option(voice.name, i)))
-};
+// Kur ngarkohen zërat në telefon ose desktop
+window.speechSynthesis.onvoiceschanged = populateVoices;
 
-voiceSelect.addEventListener("change", () =>{
+// Thirr populate edhe direkt (per ca raste)
+populateVoices();
+
+// Kur ndërron zërin
+voiceSelect.addEventListener("change", () => {
   speech.voice = voices[voiceSelect.value];
 });
 
-
-document.querySelector("button").addEventListener("click", () =>{
+// Kur klikon "Listen"
+document.querySelector("button").addEventListener("click", () => {
   speech.text = document.querySelector("textarea").value;
   window.speechSynthesis.speak(speech);
 });
