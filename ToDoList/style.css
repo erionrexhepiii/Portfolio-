@@ -1,49 +1,49 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
-.conteiner{
+.container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #D6EAF8, #FDF6EC); /* blu pastel + krem */
+  background: linear-gradient(135deg, #D6EAF8, #FDF6EC);
   padding: 10px;
 }
 
-.todo-app{
+.todo-app {
   width: 100%;
   max-width: 540px;
-  background-color: #FFF9F0; /* kartë kremi */
+  background-color: #FFF9F0;
   margin: 100px auto 20px;
   padding: 40px 30px 70px;
-  border-radius: 10px ;
+  border-radius: 10px;
 }
 
-.todo-app h2{
-  color: #2C3E50; /* blu e errët */
+.todo-app h2 {
+  color: #2C3E50;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.todo-app h2 img{
+.todo-app h2 img {
   width: 30px;
   margin-left: 10px;
 }
 
-.row{
+.row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #FDF6EC; /* input bg krem */
+  background: #FDF6EC;
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 25px;
 }
 
-input{
+input {
   flex: 1;
   border: none;
   outline: none;
@@ -52,11 +52,11 @@ input{
   color: #2C3E50;
 }
 
-button{
+button {
   border: none;
   outline: none;
   padding: 16px 50px;
-  background: #5DADE2; /* buton blu pastel */
+  background: #5DADE2;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -65,12 +65,12 @@ button{
 }
 
 button:hover {
-  background: #3498DB; /* blu më e thellë */
+  background: #3498DB;
 }
 
-ul li{
+ul li {
   list-style: none;
-  font-size: 17px ;
+  font-size: 17px;
   padding: 12px 8px 12px 50px;
   user-select: none;
   cursor: pointer;
@@ -78,7 +78,7 @@ ul li{
   color: #333;
 }
 
-ul li::before{
+ul li::before {
   content: '';
   position: absolute;
   height: 28px;
@@ -91,16 +91,16 @@ ul li::before{
   left: 8px;
 }
 
-ul li.checked{
+ul li.checked {
   color: #aaa;
   text-decoration: line-through;
 }
 
-ul li.checked::before{
+ul li.checked::before {
   background-image: url(images/checked.png);
 }
 
-ul li span{
+ul li span {
   position: absolute;
   right: 0;
   top: 5px;
@@ -113,23 +113,36 @@ ul li span{
   border-radius: 50%;
 }
 
-ul li span:hover{
+ul li span:hover {
   background-color: #f0eae0;
 }
 
+/* ✅ Responsive për telefon */
 @media (max-width: 768px) {
-  body {
-    padding: 20px;
-    text-align: center;
+  .row {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
   }
 
-  h1 {
-    font-size: 28px;
-  }
-
-  input, button, textarea, select {
+  input {
     width: 100%;
-    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .todo-app {
+    margin: 50px auto 20px;
+    padding: 30px 20px 50px;
+  }
+
+  .todo-app h2 {
+    font-size: 24px;
   }
 }
-
