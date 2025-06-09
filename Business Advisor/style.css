@@ -303,30 +303,98 @@
 }
 
 
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-consult {
+    align-self: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .about-container,
+  .services-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-text, 
+  .about-image,
+  .services-text,
+  .services-image {
+    flex: 1 1 100%;
+  }
+
+  .about-text h2,
+  .services-text h2,
+  .testimonials h2,
+  .contact h2 {
+    font-size: 28px;
+  }
+
+  .testimonials {
+    padding: 60px 20px;
+  }
+
+  .testimonial p {
+    font-size: 16px;
+  }
+
+  .contact {
+    padding: 60px 20px;
+  }
+}
 
 
+@media (max-width: 480px) {
+  .navbar {
+    padding: 15px 20px;
+  }
 
+  .hero h1 {
+    font-size: 24px;
+  }
 
+  .hero p {
+    font-size: 14px;
+  }
 
+  .btn-consult, 
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 
+  .about-text p,
+  .services-text li {
+    font-size: 14px;
+  }
 
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .contact-form button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
 
 
