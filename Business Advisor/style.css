@@ -137,9 +137,9 @@
 
 .about-text p{
   font-size: 16px;
-  line-height: 3px;
+  line-height: 1.6;
   color: #333;
-
+  margin-bottom: 30px;
 }
 
 .about-image{
