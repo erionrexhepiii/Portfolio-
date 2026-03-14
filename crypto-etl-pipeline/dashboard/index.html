@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto ETL Dashboard</title>
+    <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0f;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #1a1a2e;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #00d4aa, #7c5cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.last-updated {
+    color: #555;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: #12121a;
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.card:hover {
+    border-color: #7c5cff;
+}
+
+.card-label {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #7c5cff;
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #12121a;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead {
+    background: #1a1a2e;
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #aaa;
+}
+
+td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #1a1a2e;
+    font-size: 0.95rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: #16162a;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #1a1a2e;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+footer p + p {
+    margin-top: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.6rem;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Crypto Market Dashboard</h1>
+            <p class="subtitle">Data Pipeline: CoinGecko API &rarr; Python ETL &rarr; DuckDB &rarr; Analytics</p>
+            <p class="last-updated">Last updated: 2026-03-14 02:39:23.323863</p>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-label">Coins Tracked</div>
+                <div class="card-value">20</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Total Market Cap</div>
+                <div class="card-value">$2294.43B</div>
+            </div>
+            <div class="card">
+                <div class="card-label">24h Volume</div>
+                <div class="card-value">$204.31B</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Avg 24h Change</div>
+                <div class="card-value"><span style="color:#ff4757">&darr; -0.66%</span></div>
+            </div>
+        </div>
+
+        <section>
+            <h2>Top 10 by Market Cap</h2>
+            <table><thead><tr><th>Name</th><th>Symbol</th><th>Price</th><th>Market Cap</th><th>24H Change</th><th>Tier</th></tr></thead><tbody><tr><td>Bitcoin</td><td>BTC</td><td>$70,580.00</td><td>$1,411.86B</td><td><span style="color:#ff4757">&darr; -1.06%</span></td><td>large_cap</td></tr><tr><td>Ethereum</td><td>ETH</td><td>$2,085.82</td><td>$251.81B</td><td><span style="color:#ff4757">&darr; -1.39%</span></td><td>large_cap</td></tr><tr><td>Tether</td><td>USDT</td><td>$1.00</td><td>$184.02B</td><td><span style="color:#00d4aa">&uarr; +0.01%</span></td><td>large_cap</td></tr><tr><td>BNB</td><td>BNB</td><td>$653.63</td><td>$89.14B</td><td><span style="color:#ff4757">&darr; -0.75%</span></td><td>large_cap</td></tr><tr><td>XRP</td><td>XRP</td><td>$1.40</td><td>$85.52B</td><td><span style="color:#ff4757">&darr; -0.96%</span></td><td>large_cap</td></tr><tr><td>USDC</td><td>USDC</td><td>$0.999964</td><td>$79.21B</td><td><span style="color:#00d4aa">&uarr; +0.00%</span></td><td>large_cap</td></tr><tr><td>Solana</td><td>SOL</td><td>$88.03</td><td>$50.30B</td><td><span style="color:#ff4757">&darr; -2.48%</span></td><td>large_cap</td></tr><tr><td>TRON</td><td>TRX</td><td>$0.293345</td><td>$27.79B</td><td><span style="color:#00d4aa">&uarr; +1.04%</span></td><td>large_cap</td></tr><tr><td>Figure Heloc</td><td>FIGR_HELOC</td><td>$1.02</td><td>$16.18B</td><td><span style="color:#00d4aa">&uarr; +1.40%</span></td><td>large_cap</td></tr><tr><td>Dogecoin</td><td>DOGE</td><td>$0.095552</td><td>$14.66B</td><td><span style="color:#ff4757">&darr; -1.26%</span></td><td>large_cap</td></tr></tbody></table>
+        </section>
+
+        <div class="two-col">
+            <section>
+                <h2>Biggest Gainers (24h)</h2>
+                <table><thead><tr><th>Name</th><th>Symbol</th><th>Price</th><th>24H Change</th></tr></thead><tbody><tr><td>Canton</td><td>CC</td><td>$0.153910</td><td><span style="color:#00d4aa">&uarr; +4.24%</span></td></tr><tr><td>Figure Heloc</td><td>FIGR_HELOC</td><td>$1.02</td><td><span style="color:#00d4aa">&uarr; +1.40%</span></td></tr><tr><td>TRON</td><td>TRX</td><td>$0.293345</td><td><span style="color:#00d4aa">&uarr; +1.04%</span></td></tr><tr><td>Monero</td><td>XMR</td><td>$359.13</td><td><span style="color:#00d4aa">&uarr; +0.46%</span></td></tr><tr><td>Ethena USDe</td><td>USDE</td><td>$1.00</td><td><span style="color:#00d4aa">&uarr; +0.03%</span></td></tr></tbody></table>
+            </section>
+            <section>
+                <h2>Biggest Losers (24h)</h2>
+                <table><thead><tr><th>Name</th><th>Symbol</th><th>Price</th><th>24H Change</th></tr></thead><tbody><tr><td>Hyperliquid</td><td>HYPE</td><td>$36.55</td><td><span style="color:#ff4757">&darr; -4.07%</span></td></tr><tr><td>Chainlink</td><td>LINK</td><td>$9.05</td><td><span style="color:#ff4757">&darr; -2.54%</span></td></tr><tr><td>Solana</td><td>SOL</td><td>$88.03</td><td><span style="color:#ff4757">&darr; -2.48%</span></td></tr><tr><td>Cardano</td><td>ADA</td><td>$0.264420</td><td><span style="color:#ff4757">&darr; -2.16%</span></td></tr><tr><td>Bitcoin Cash</td><td>BCH</td><td>$459.84</td><td><span style="color:#ff4757">&darr; -2.12%</span></td></tr></tbody></table>
+            </section>
+        </div>
+
+        <section>
+            <h2>Market Cap Distribution</h2>
+            <table><thead><tr><th>Tier</th><th>Count</th><th>Total Mcap ($B)</th><th>Avg 24H Change</th></tr></thead><tbody><tr><td>large_cap</td><td>12</td><td>2233.6</td><td><span style="color:#ff4757">&darr; -0.56%</span></td></tr><tr><td>mid_cap</td><td>8</td><td>60.83</td><td><span style="color:#ff4757">&darr; -0.80%</span></td></tr></tbody></table>
+        </section>
+
+        <footer>
+            <p>Built by Erion Rexhepi | Data Engineering Portfolio Project</p>
+            <p>Stack: Python &middot; Prefect &middot; DuckDB &middot; CoinGecko API</p>
+        </footer>
+    </div>
+</body>
+</html>

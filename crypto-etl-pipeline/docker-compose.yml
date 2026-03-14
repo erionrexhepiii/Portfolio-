@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  etl:
+    build: .
+    container_name: crypto-etl
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env.example
+    command: python orchestration/flows.py
+
+  dashboard:
+    build: .
+    container_name: crypto-dashboard
+    volumes:
+      - ./data:/app/data
+      - ./dashboard:/app/dashboard
+    env_file:
+      - .env.example
+    command: python dashboard/generate_dashboard.py
+    depends_on:
+      - etl
+
+  tests:
+    build: .
+    container_name: crypto-tests
+    command: pytest tests/ -v
+    profiles:
+      - test
